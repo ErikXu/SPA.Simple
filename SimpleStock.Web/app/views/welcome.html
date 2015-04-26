@@ -1,0 +1,32 @@
+<section>
+    <div class="panel panel-default">
+        <div class="panel-heading">Stocks</div>
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>证券代码</th>
+                <th>证券名称</th>
+                <th>交易所</th>
+                <th>证监会行业</th>
+                <th>证监会行业全称</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-bind="if: list().length === 0">
+                <td colspan="5">No records to display</td>
+            </tr>
+            <!-- ko foreach: list -->
+            <tr>
+                <td data-bind="text: securitiesCode"></td>
+                <td data-bind="text: securitiesName"></td>
+                <td data-bind="text: exchange"></td>
+                <td data-bind="text: industryName"></td>
+                <td data-bind="text: fullIndustryName"></td>
+            </tr>
+            <!-- /ko -->
+            </tbody>
+        </table>
+    </div>
+    <!-- ko compose:{view:'../shared/views/pager.html', model: list.pager, cacheViews:true} -->
+    <!-- /ko -->
+</section>
